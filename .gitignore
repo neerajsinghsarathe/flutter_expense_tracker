@@ -30,6 +30,12 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+android
+ios
+pubspec.lock
+test
+.metadata
+analysis_options.yaml
 
 # Symbolication related
 app.*.symbols
