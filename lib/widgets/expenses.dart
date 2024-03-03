@@ -19,9 +19,15 @@ class _ExpensesState extends State<Expenses> {
     Expense(title: 'Cinema', amount: 69.99, date: DateTime.now(), category: Category.leisure)
   ];
 
-  void _addExpense(expense) {
+  void _addExpense(Expense expense) {
     setState(() {
       _registeredExpenses.add(expense);
+    });
+  }
+
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
     });
   }
 
@@ -37,7 +43,7 @@ class _ExpensesState extends State<Expenses> {
         actions: [IconButton(onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add))],
       ),
       body: Column(
-        children: [Expanded(child: ExpensesList(expenses: _registeredExpenses))],
+        children: [Expanded(child: ExpensesList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,))],
       ),
     );
   }
